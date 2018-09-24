@@ -17,9 +17,14 @@ public class ReverseArray
             flag--;
         }
 
-        for (int i=0;i<data.length;i++)
-        {
-                System.out.printf("Value of %d = %d%n",extra,data[i]);
-         }
+//         for (int i=0;i<data.length;i++)
+//         {
+//                 System.out.printf("Value of %d = %d%n",extra,data[i]);
+//          }
+        
+        for (array data : Array) 
+            { 
+                data;
+            }
     }
 }
