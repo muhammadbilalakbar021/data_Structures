@@ -25,8 +25,10 @@ public class w_LinkLIST
         else
         {
             list.next=head;
+            list.next.previous=list;
             head=list;
             previous=list;
+
         }
     }
 
@@ -57,20 +59,29 @@ public class w_LinkLIST
         previous.next=list;
         current.previous=list;
     }
-
-    void insertAfterlocation(int loc, int val)
+    void search(int number)
     {
-        int counter=0;
+        w_NOde list=head;
+        for(;list!=null;list=list.next)
+        {
+            if(list.value==number)
+            {
+                System.out.printf("The number you eneter id is founde");
+            }
+        }
+
+    }
+
+    void insertAfterValue(int loc, int val)
+    {
         w_NOde list=new w_NOde(val);
         w_NOde current=head;
         w_NOde previous=null;
 
-        while (counter!=loc)
+        while (current.value!=loc)
         {
             previous=current;
             current=current.next;
-
-            counter++;
         }
         list.previous=previous;
         list.next=current;
@@ -113,16 +124,10 @@ public class w_LinkLIST
         w_NOde list1=head;
         while (list1.next!=null)
         {
+            System.out.printf("%d  %n",list1.value);
             list1=list1.next;
         }
 
-
-        w_NOde list=list1;
-        while (list.previous!=null)
-        {
-            System.out.printf("%3d",list.value);
-            list=list.previous;
-        }
     }
 
     public void bubble_Sort()
@@ -163,40 +168,46 @@ public class w_LinkLIST
 
     public void selection_Sort()
     {
-
-        int min_Index=0,temp;
         w_NOde current=head;
-        w_NOde exchange=current,temp_NOde=null;
+        w_NOde minimum;
+        int min_Value;
 
-        while (current.next!=null)
+        for(;current!=null;current=current.next)
         {
+            minimum=current;
+            min_Value=current.value;
 
-            min_Index=current.value;
-            exchange=current;
-
-            for(;exchange.next!=null;exchange=exchange.next)
+            for(;minimum!=null;minimum=minimum.next)
             {
-                if(exchange.value>current.value)
+                if(minimum.value<min_Value)
                 {
-                    min_Index=exchange.value;
-                    temp_NOde.value=exchange.value;
-
+                    min_Value=minimum.value;
                 }
-
-
-
             }
-            temp=min_Index;
-            current.value=temp_NOde.value;
-            temp_NOde.value=temp;
-            current=current.next;
+            minimum.value=current.value;
+            current.value=min_Value;
         }
 
     }
 
     public void insertion_Sort()
     {
+        w_NOde current=head;
+        w_NOde previous;
 
+        for (current=current.next;current.next!=null;current=current.next)
+        {
+            int comapre_number=current.value;
+            previous=current;
+
+            while (previous.previous.value>comapre_number && previous.next!=null)
+            {
+                    previous.value=previous.previous.value;
+                    previous=previous.next;
+            }
+
+
+        }
     }
 
 
@@ -237,6 +248,16 @@ public class w_LinkLIST
 //            head=head.next;
 
         }
+
+    }
+    public void reverse()
+    {
+        w_NOde list=tail;
+        for(;list!=null;list=list.previous)
+        {
+            System.out.printf("%3d",list.value);
+        }
+        System.out.println("");
 
     }
 

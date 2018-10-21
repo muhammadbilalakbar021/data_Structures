@@ -83,6 +83,26 @@ public class linked_LIst
         }
     }
 
+    void insertAfterValue(int loc, int val) {
+        Node list = new Node(val);
+
+
+        if (head != null) {
+            Node curreent = head;
+            Node previous = null;
+
+
+            while (curreent.data != loc) {
+                previous = curreent;
+                curreent = curreent.next;
+            }
+
+            previous.next = list;
+            list.next = curreent;
+
+        }
+    }
+
 
     void deleteAtStart()
     {
@@ -132,6 +152,18 @@ public class linked_LIst
         }
     }
 
+    void search(int number)
+    {
+        Node list=head;
+        for(;list!=null;list=list.next)
+        {
+            if(list.data==number)
+            {
+                System.out.printf("The number you eneter id is founde");
+            }
+        }
+
+    }
 
 
     void display()
@@ -141,6 +173,33 @@ public class linked_LIst
         {
             System.out.printf("%3d",list.data);
         }
+    }
+
+    void insertionSort()
+    {
+        Node current=head;
+        Node compare=head;
+        Node previous;
+
+
+
+        for (current=current.next;current!=null;current=current.next)
+        {
+            int change_Var=current.data;
+            previous=current;
+
+            while (previous.data>change_Var && previous.next!=null)
+            {
+                compare.data=previous.data;
+                previous.data=current.data;
+
+
+                previous=previous.next;
+
+            }
+            current.data=change_Var;
+        }
+
     }
 
 }

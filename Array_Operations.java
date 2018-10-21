@@ -1,23 +1,25 @@
 public class Array_Operations
 {
-    int number;
-    public Array_Operations(int number)
-    {
-        this.number=number;
-    }
+//    public int number=0;
+//    public Array_Operations(int number)
+//    {
+//        this.number=number;
+//    }
+//
+//    int[] array=new int[number];
 
-    int[] array=new int[this.number];
 
-    public void insert(int key,int index)
+    public void insert(int[] array, int key,int index)
     {
         for(int i=array.length-1;i>index;i--)
         {
             array[i]=array[i-1];
         }
         array[index]=key;
+
     }
 
-    public void delete(int key,int index)
+    public void delete(int[] array,int key,int index)
     {
         for(int i=index;i<array.length-1;i++)
         {
@@ -25,10 +27,6 @@ public class Array_Operations
         }
         array[array.length-1]=0;
 
-        for(int i=0;i<array.length;i++)
-        {
-            System.out.printf("%d",array[i]);
-        }
     }
 
     public void insert_at_Index(int[] array, int key,int index)
@@ -43,6 +41,17 @@ public class Array_Operations
             array[i]=array[i-1];
         }
         array[index]=key;
+    }
+
+    public void search(int[] array, int key)
+    {
+        for(int i=0;i<array.length;i++)
+        {
+            if(array[i]==key)
+            {
+                System.out.printf("your value found at index %d",i);
+            }
+        }
     }
 
     public void bubbleSort(int[] array)
@@ -127,9 +136,5 @@ public class Array_Operations
         }
     }
 
-    public String toString()
-    {
 
-        return null;
-    }
 }
