@@ -1,0 +1,36 @@
+3
+Riyadh 2
+Dammam 2
+Taif 1
+5
+0 1117777 Ahmed AlQahtani Riyadh 3
+20 1118888 Khalid AlZubaidi Dammam 10
+40 1119999 Mohsin Bakhashab Taif 5
+60 1112222 Jonathan Cazalas Madinah 4
+60 1112222 Wajdi Damonhouri Taif 2
+5
+Riyadh 1
+Dammam 1
+Taif 1
+Madinah 1
+Jazan 1
+8
+70 1117777 Ahmed AlQahtani Riyadh 4
+70 1118888 Khalid AlZubaidi Dammam 6
+70 1119999 Mohsin Bakhashab Dammam 200
+70 1112222 Jonathan Cazalas Madinah 4
+70 1112222 Wajdi Damonhouri Madinah 2
+70 1113333 Iyad AlShihiri Jazan 4
+170 1114444 Muhammad AlGhamdi Riyadh 4
+299 1115555 Bilal Aalishaikh Jazan 1
+1
+Madinah 5
+8
+299 1117777 Ahmed AlQahtani Madinah 4
+299 1118888 Khalid AlZubaidi Madinah 6
+299 1119999 Mohsin Bakhashab Makkah 2
+299 1112222 Jonathan Cazalas Madinah 8
+299 1112222 Wajdi Damonhouri Madinah 7
+299 1113333 Iyad AlShihiri Makkah 4
+299 1114444 Muhammad AlGhamdi Madinah 5
+299 1115555 Bilal Aalishaikh Madinah 1
