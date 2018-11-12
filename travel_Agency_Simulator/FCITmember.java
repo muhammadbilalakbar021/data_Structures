@@ -12,6 +12,7 @@ public class FCITmember
     private int enterTime;
     private int timeNeededForBooking;
     FCITmember next;
+    public boolean seats=false;
 
     public  FCITmember()
     {
@@ -146,5 +147,10 @@ public class FCITmember
     public int nullHandler()
     {
         return 0;
+    }
+
+    public boolean seat_Reserved()
+    {
+       return seats;
     }
 }

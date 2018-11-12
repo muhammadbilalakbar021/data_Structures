@@ -6,6 +6,7 @@ public class FCITqueue
     FCITmember back;
     private String name;
 
+
     public void FCITqueuesetnull()
     {
         this.front=null;
@@ -54,20 +55,6 @@ public class FCITqueue
 
     public FCITmember pop()
     {
-//        if(front!=null)
-//        {
-//            FCITmember temp=front;
-//            if (front.getNext()!=null)
-//            {
-//                front=front.getNext();
-//            }
-//            return temp;
-//        }
-//        else
-//        {
-//            System.out.println("FCITqueue is empty");
-//            return null;
-//        }
         FCITmember temp=front;
         front=front.getNext();
         return temp;
@@ -113,6 +100,8 @@ public class FCITqueue
             return 0;
         }
     }
+
+
 
 
 }

@@ -1,45 +1,36 @@
 package travel_Agency_Simulator;
 
-public class city
-{
+public class city {
     public String name;
     public int rows;
     public String[][] seats;
     public int total;
     public int numUsed;
 
-    public city(String name, int rows)
-    {
+    public city(String name, int rows) {
         this.name = name;
         this.rows = rows;
-        this.total=rows*6;
-        this.numUsed=0;
+        this.total = rows * 6;
+        this.numUsed = 0;
         seat_Maker();
     }
 
-    private void seat_Maker()
-    {
-        seats=new String[rows][6];
-        for(int i=0;i<rows;i++)
-        {
-            for(int j=0;j<6;j++)
-            {
-                int number =65 +j;
-                seats[i][j]=""+i+(char) number;
+    private void seat_Maker() {
+        seats = new String[rows][6];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < 6; j++) {
+                int number = 65 + j;
+                seats[i][j] = "" + i + (char) number;
 
             }
         }
     }
 
 
-    public boolean seatAvailabiltiy(int seats_number)
-    {
-        if((total-numUsed)>seats_number)
-        {
-            return  true;
-        }
-        else
-        {
+    public boolean seatAvailabiltiy(int seats_number) {
+        if ((total - numUsed) > seats_number) {
+            return true;
+        } else {
             return false;
         }
     }
@@ -84,21 +75,21 @@ public class city
         this.numUsed = numUsed;
     }
 
-    public void display()
-    {
+    public void display() {
         System.out.println(name);
         System.out.println(rows);
     }
 
     public void reserveSeats(int number)
     {
-        for (int i=0;i<rows;i++)
+        for (int i = 0; i < rows; i++)
         {
-            for (int j=0;j<6;j++)
+            for (int j = 0; j < 6; j++)
             {
-                if(i+j<number)
-                {
-                    seats[i][j]=null;
+                if (i + j < number)
+                    {
+                    seats[i][j] = null;
+                    numUsed++;
                 }
             }
         }
