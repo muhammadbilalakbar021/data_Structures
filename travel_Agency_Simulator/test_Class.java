@@ -97,14 +97,14 @@ public class test_Class {
                {
                    if(queue1.front.getEnterTime()==i)
                    {
-                       System.out.println(timeConvert(i) +"PM: "+queue1.front.getFirstName()+" is at the front of Reservations Line 1 and is now beginning the booking.");
+                       System.out.println(timeConvert(i+1) +"PM: "+queue1.front.getFirstName()+" is at the front of Reservations Line 1 and is now beginning the booking.");
                        if (queue1.front.seat_Reserved()==false)
                        {
                            if (object_city[cityDisplay(queue1.front.getDestinationCity())]!=null)
                            {
                                if(object_city[cityDisplay(queue1.front.getDestinationCity())].seatAvailabiltiy(queue1.front.getNumSeats()))
                                {
-                                   System.out.println(timeConvert(i) +"PM: "+queue1.front.getFirstName()+" has finished the booking and is now exiting Reservations Line 1.");
+                                   System.out.println(timeConvert(i+1+(queue1.front.getNumSeats()*2)) +"PM: "+queue1.front.getFirstName()+" has finished the booking and is now exiting Reservations Line 1.");
                                    queue1.front.seats=true;
                                    queue1.pop();
 //                               if(queue1.front.next.getEnterTime()==i)
@@ -115,7 +115,7 @@ public class test_Class {
                            }
                            else
                            {
-                               System.out.println(timeConvert(i) +"PM: "+queue1.front.getFirstName()+" is leaving the FCIT Travel Agency because no seats are available for the " +
+                               System.out.println(timeConvert(i+1) +"PM: "+queue1.front.getFirstName()+" is leaving the FCIT Travel Agency because no seats are available for the " +
                                        "requested flight.");
                            }
                        }
@@ -125,14 +125,14 @@ public class test_Class {
                {
                    if (queue2.front.getEnterTime()==i)
                    {
-                       System.out.println(timeConvert(i) +"PM: "+queue2.front.getFirstName()+" is at the front of Reservations Line 2 and is now beginning the booking.");
+                       System.out.println(timeConvert(i+1) +"PM: "+queue2.front.getFirstName()+" is at the front of Reservations Line 2 and is now beginning the booking.");
                        if (queue2.front.seat_Reserved()==false)
                        {
                            if (object_city[cityDisplay(queue2.front.getDestinationCity())]!=null)
                            {
                                if(object_city[cityDisplay(queue2.front.getDestinationCity())].seatAvailabiltiy(queue2.front.getNumSeats()))
                                {
-                                   System.out.println(timeConvert(i) +"PM: "+queue2.front.getFirstName()+" has finished the booking and is now exiting Reservations Line 2.");
+                                   System.out.println(timeConvert(i+1+(queue2.front.getNumSeats()*2)) +"PM: "+queue2.front.getFirstName()+" has finished the booking and is now exiting Reservations Line 2.");
                                    queue2.front.seats=true;
                                    queue2.pop();
 //                               if(queue1.front.next.getEnterTime()==i)
@@ -143,7 +143,7 @@ public class test_Class {
                            }
                            else
                            {
-                               System.out.println(timeConvert(i) +"PM: "+queue2.front.getFirstName()+" is leaving the FCIT Travel Agency because no seats are available for the " +
+                               System.out.println(timeConvert(i+1) +"PM: "+queue2.front.getFirstName()+" is leaving the FCIT Travel Agency because no seats are available for the " +
                                        "requested flight.");
                            }
                        }
@@ -153,14 +153,14 @@ public class test_Class {
                {
                    if (queue3.front.getEnterTime()==i)
                    {
-                       System.out.println(timeConvert(i) +"PM: "+queue3.front.getFirstName()+" is at the front of Reservations Line 3 and is now beginning the booking.");
+                       System.out.println(timeConvert(i+1) +"PM: "+queue3.front.getFirstName()+" is at the front of Reservations Line 3 and is now beginning the booking.");
                        if (queue3.front.seat_Reserved()==false)
                        {
                            if (object_city[cityDisplay(queue3.front.getDestinationCity())]!=null)
                            {
                                if(object_city[cityDisplay(queue3.front.getDestinationCity())].seatAvailabiltiy(queue3.front.getNumSeats()))
                                {
-                                   System.out.println(timeConvert(i) +"PM: "+queue3.front.getFirstName()+" has finished the booking and is now exiting Reservations Line 3.");
+                                   System.out.println(timeConvert(i+1+(queue3.front.getNumSeats()*2)) +"PM: "+queue3.front.getFirstName()+" has finished the booking and is now exiting Reservations Line 3.");
                                    queue3.front.seats=true;
                                    queue3.pop();
 //                               if(queue1.front.next.getEnterTime()==i)
@@ -171,7 +171,7 @@ public class test_Class {
                            }
                            else
                            {
-                               System.out.println(timeConvert(i) +"PM: "+queue3.front.getFirstName()+" is leaving the FCIT Travel Agency because no seats are available for the " +
+                               System.out.println(timeConvert(i+1) +"PM: "+queue3.front.getFirstName()+" is leaving the FCIT Travel Agency because no seats are available for the " +
                                        "requested flight.");
                            }
                        }
@@ -194,7 +194,7 @@ public class test_Class {
     }
 
     public static String timeConvert(int time) {
-        return (12 + time / 60 % 24) + ":" + time % 60;
+        return (12 + time / 60 % 12) + ":" + time % 60;
     }
 
     public static int cityDisplay(String city) {
