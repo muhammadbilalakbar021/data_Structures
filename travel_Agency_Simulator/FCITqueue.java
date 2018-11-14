@@ -55,9 +55,22 @@ public class FCITqueue
 
     public FCITmember pop()
     {
+
         FCITmember temp=front;
-        front=front.getNext();
-        return temp;
+            front=front.next;
+            return temp;
+
+//        if (front.next!=null)
+//        {
+//            FCITmember temp=front;
+//            front=front.next;
+//            return temp;
+//        }
+//        else
+//        {
+//            return null;
+//        }
+
 
 
     }

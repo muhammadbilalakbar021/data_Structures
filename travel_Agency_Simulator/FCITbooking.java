@@ -25,6 +25,13 @@ public class FCITbooking
         this.next = next;
     }
 
+    public FCITbooking(String firstName, String lastName)
+    {
+        this.firstName = firstName;
+        this.lastName = lastName;
+
+    }
+
     public int getBookngNumber() {
         return bookngNumber;
     }

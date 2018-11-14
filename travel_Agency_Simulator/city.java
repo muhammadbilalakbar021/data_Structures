@@ -28,7 +28,7 @@ public class city {
 
 
     public boolean seatAvailabiltiy(int seats_number) {
-        if ((total - numUsed) > seats_number) {
+        if ((total - numUsed) >= seats_number) {
             return true;
         } else {
             return false;
@@ -82,16 +82,17 @@ public class city {
 
     public void reserveSeats(int number)
     {
-        for (int i = 0; i < rows; i++)
-        {
-            for (int j = 0; j < 6; j++)
-            {
-                if (i + j < number)
-                    {
-                    seats[i][j] = null;
-                    numUsed++;
-                }
-            }
-        }
+        numUsed=number;
+//        for (int i = 0; i < rows; i++)
+//        {
+//            for (int j = 0; j < 6; j++)
+//            {
+//                if (i + j < number)
+//                    {
+//                    seats[i][j] = null;
+//                    numUsed++;
+//                }
+//            }
+//        }
     }
 }

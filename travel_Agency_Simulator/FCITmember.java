@@ -12,7 +12,7 @@ public class FCITmember
     private int enterTime;
     private int timeNeededForBooking;
     FCITmember next;
-    public boolean seats=false;
+    public boolean seats;
 
     public  FCITmember()
     {
@@ -152,5 +152,10 @@ public class FCITmember
     public boolean seat_Reserved()
     {
        return seats;
+    }
+    public boolean seat_Reserved(boolean var)
+    {
+        this.seats=var;
+        return seats;
     }
 }
