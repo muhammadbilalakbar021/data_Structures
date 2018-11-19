@@ -14,19 +14,34 @@ public class test_Class {
         int numbers = 0;
         int loop_flag;
         String[] tokens;
-        int time1=-1;
-        int time2=-1;
-        int time3=-1;
-        int city_time1=-1;
-        int city_time2=-1;
-        int city_time3=-1;
+
+
         int hello=0;
 
-        while ((line = bufferedReader.readLine()) != null) {
+        while ((line = bufferedReader.readLine()) != null)
+        {
             FCITqueue queue1 = new FCITqueue();
             FCITqueue queue2 = new FCITqueue();
             FCITqueue queue3 = new FCITqueue();
+
+            FCITqueue printing_Stack=new FCITqueue();
             FCITbookingStack fciTbookingStack=new FCITbookingStack();
+
+            int printing_Stack1=-1;
+            int printing_Stack2=-1;
+            int printing_Stack3=-1;
+            int time1=-1;
+            int time2=-1;
+            int time3=-1;
+            int city_time1=-1;
+            int city_time2=-1;
+            int city_time3=-1;
+            int timemanage1=-1;
+            int timemanage2=-1;
+            int timemanage3=-1;
+            int entering_Time1=-1;
+            int entering_Time2=-1;
+            int entering_Time3=-1;
 
 
             FCITqueue fciTqueue = new FCITqueue();
@@ -97,158 +112,205 @@ public class test_Class {
                         {
                             if(fciTqueue.front.getEnterTime()==i)
                             {
-                              i--;
+                                i--;
                             }
                         }
                     }
                 }
 
 
-               if(!queue1.empty())
-               {
-                   if(queue1.front.getEnterTime()==i)
-                   {
-                       System.out.println(timeConvert(i+1) +"PM: "+queue1.front.getFirstName() + " " +queue1.front.getLastName()+" is at the front of Reservations Line 1 and is now beginning the booking.");
-                       if (queue1.front.seat_Reserved()==false)
-                       {
-                           if (object_city[cityDisplay(queue1.front.getDestinationCity())]!=null)
-                           {
-                               if(object_city[cityDisplay(queue1.front.getDestinationCity())].seatAvailabiltiy(queue1.front.getNumSeats()))
-                               {
-                                   object_city[cityDisplay(queue1.front.getDestinationCity())].reserveSeats(queue1.front.getNumSeats());
-                                   time1=(queue1.front.getNumSeats()*2)+(i);
-                                   queue1.front.seats=true;
-                               }
-                               else
-                               {
-                               }
-                           }
-                           else
-                           {
-//                               System.out.println(timeConvert(i+1) +"PM: "+queue1.front.getFirstName()+ " " +queue1.front.getLastName()+" is leaving the FCIT Travel Agency because no seats are available for the " +
-//                                       "requested flight.");
-                               city_time1=i+2;
+                if(!queue1.empty())
+                {
+                    if(queue1.front.getEnterTime()==i)
+                    {
+                        System.out.println(timeConvert(i+1) +"PM: "+queue1.front.getFirstName() + " " +queue1.front.getLastName()+" is at the front of Reservations Line 1 and is now beginning the booking.");
+                        if (queue1.front.seat_Reserved()==false)
+                        {
+                            if (object_city[cityDisplay(queue1.front.getDestinationCity())]!=null)
+                            {
+                                if(object_city[cityDisplay(queue1.front.getDestinationCity())].seatAvailabiltiy(queue1.front.getNumSeats()))
+                                {
+                                    object_city[cityDisplay(queue1.front.getDestinationCity())].reserveSeats(queue1.front.getNumSeats());
+                                    time1=(queue1.front.getNumSeats()*2)+(i);
+                                    queue1.front.seats=true;
+                                }
+                                else
+                                {
+                                    city_time1=i+2;
 
-                           }
-                       }
-                   }
-                   if (city_time1==i)
-                   {
-                       System.out.println(timeConvert(i) +"PM: "+queue1.front.getFirstName()+ " " +queue1.front.getLastName()+" is leaving the FCIT Travel Agency because no seats are available for the " +
-                               "requested flight.");
-                       if (queue1.front.seat_Reserved()==false)
-                       {
-                           queue1.pop();
-                       }
-                   }
-                   if(time1==i)
-                   {
-                       System.out.println(timeConvert(i+1) +"PM: "+queue1.front.getFirstName()+ " " +queue1.front.getLastName()+" has finished the booking and is now exiting Reservations Line 1.");
-                       fciTbookingStack.push(queue1.front.getFirstName(),queue1.front.getLastName());
-                       queue1.pop();
-                       if (queue1.front!=null)
-                       {
-                           i=queue1.front.getEnterTime()-1;
-                       }
-                   }
-               }
-               if(!queue2.empty())
-               {
-                   if (queue2.front.getEnterTime()==i)
-                   {
-                       System.out.println(timeConvert(i+1) +"PM: "+queue2.front.getFirstName()+ " " +queue2.front.getLastName()+" is at the front of Reservations Line 2 and is now beginning the booking.");
-                       if (queue2.front.seat_Reserved()==false)
-                       {
-                           if (object_city[cityDisplay(queue2.front.getDestinationCity())]!=null)
-                           {
-                               if(object_city[cityDisplay(queue2.front.getDestinationCity())].seatAvailabiltiy(queue2.front.getNumSeats()))
-                               {
-                                   object_city[cityDisplay(queue2.front.getDestinationCity())].reserveSeats(queue2.front.getNumSeats());
-                                   time2=(queue2.front.getNumSeats()*2)+(i);
-                                   queue2.front.seats=true;
-                               }
-                               else
-                               {
-                                   city_time2=i+2;
-                               }
-                           }
-                           else
-                           {
-//                               System.out.println(timeConvert(i+1) +"PM: "+queue2.front.getFirstName()+ " " +queue2.front.getLastName()+" is leaving the FCIT Travel Agency because no seats are available for the " +
-//                                       "requested flight.");
-                               if (queue2.front.seat_Reserved()==false)
-                               {
-                                   city_time2=i+2;
-                               }
-                           }
-                       }
-                   }
-                   if(city_time2==i)
-                   {
-                       System.out.println(timeConvert(i) +"PM: "+queue2.front.getFirstName()+ " " +queue2.front.getLastName()+" is leaving the FCIT Travel Agency because no seats are available for the " +
-                               "requested flight.");
-                       queue2.pop();
-                   }
-                   if (time2==i)
-                   {
-                       System.out.println(timeConvert(i+1) +"PM: "+queue2.front.getFirstName()+ " " +queue2.front.getLastName()+" has finished the booking and is now exiting Reservations Line 2.");
-                       fciTbookingStack.push(queue2.front.getFirstName(),queue2.front.getLastName());
-                       queue2.pop();
-                       if (queue2.front!=null)
-                       {
-                           i=queue2.front.getEnterTime()-1;
-                       }
-                   }
-               }
-               if(!queue3.empty())
-               {
-                   if (queue3.front.getEnterTime()==i)
-                   {
-                       if (queue3.front.seat_Reserved()==false)
-                       {
-                           System.out.println(timeConvert(i+1) +"PM: "+queue3.front.getFirstName()+ " " +queue3.front.getLastName()+" is at the front of Reservations Line 3 and is now beginning the booking.");
-                           if (object_city[cityDisplay(queue3.front.getDestinationCity())]!=null)
-                           {
-                               if(object_city[cityDisplay(queue3.front.getDestinationCity())].seatAvailabiltiy(queue3.front.getNumSeats()))
-                               {
-                                   object_city[cityDisplay(queue3.front.getDestinationCity())].reserveSeats(queue3.front.getNumSeats());
-                                   time3=(queue3.front.getNumSeats()*2)+(i);
-                                   queue3.front.seats=true;
-                               }
-                               else
-                               {
-                                   city_time3=i+2;
-                               }
-                           }
-                           else
-                           {
-                               city_time3=i+2;
-                           }
-                       }
-                   }
-                   if(city_time3==i)
-                   {
-                       System.out.println(timeConvert(i) +"PM: "+queue3.front.getFirstName()+ " " +queue3.front.getLastName()+" is leaving the FCIT Travel Agency because no seats are available for the " +
-                               "requested flight.");
-                       if (queue3.front.seat_Reserved()==false)
-                       {
-                           queue3.pop();
-                       }
-                   }
+                                }
+                            }
+                            else
+                            {
+                                city_time1=i+2;
+
+                            }
+                        }
+                    }
+                    if (city_time1==i)
+                    {
+                        System.out.println(timeConvert(i) +"PM: "+queue1.front.getFirstName()+ " " +queue1.front.getLastName()+" is leaving the FCIT Travel Agency because no seats are available for the " +
+                                "requested flight.");
+                        if (queue1.front.seat_Reserved()==false)
+                        {
+                            queue1.pop();
+                        }
+                    }
+                    if(time1==i)
+                    {
+                        System.out.println(timeConvert(i+1) +"PM: "+queue1.front.getFirstName()+ " " +queue1.front.getLastName()+" has finished the booking and is now exiting Reservations Line 1.");
+                        printing_Stack.push(queue1.front.getFirstName(),queue1.front.getLastName(),queue1.front.getUniversityID(),queue1.front.getDestinationCity(),queue1.front.getNumSeats(),queue1.front.getEnterTime());
+                        timemanage1=queue1.front.getEnterTime()+1+queue1.front.getNumSeats()*2;
+                        queue1.pop();
+                        printing_Stack1=i+1;
+                        if (queue1.front!=null)
+                        {
+//                           if(queue1.front.getEnterTime()==i)
+                            {
+                                queue1.front.setEnterTime(timemanage1);
+                            }
+                        }
+                    }
+                }
+                if (printing_Stack1==i)
+                {
+                    if(printing_Stack.front!=null)
+                    {
+                        System.out.println(timeConvert(i+1) +"PM: "+printing_Stack.front.getFirstName()+" "+ printing_Stack.front.getLastName()+"has received Printed the Booking/Voucher and is leaving the FCIT Travel Agency.");
+                        fciTbookingStack.push(printing_Stack.front.getFirstName(),printing_Stack.front.getLastName());
+                        printing_Stack.pop();
+                    }
+
+                }
+                if(!queue2.empty())
+                {
+                    if (queue2.front.getEnterTime()==i)
+                    {
+                        System.out.println(timeConvert(i+1) +"PM: "+queue2.front.getFirstName()+ " " +queue2.front.getLastName()+" is at the front of Reservations Line 2 and is now beginning the booking.");
+                        if (queue2.front.seat_Reserved()==false)
+                        {
+                            if (object_city[cityDisplay(queue2.front.getDestinationCity())]!=null)
+                            {
+                                if(object_city[cityDisplay(queue2.front.getDestinationCity())].seatAvailabiltiy(queue2.front.getNumSeats()))
+                                {
+                                    object_city[cityDisplay(queue2.front.getDestinationCity())].reserveSeats(queue2.front.getNumSeats());
+                                    time2=(queue2.front.getNumSeats()*2)+(i);
+                                    queue2.front.seats=true;
+                                }
+                                else
+                                {
+                                    city_time2=i+2;
+                                }
+                            }
+                            else
+                            {
+                                if (queue2.front.seat_Reserved()==false)
+                                {
+                                    city_time2=i+2;
+                                }
+                            }
+                        }
+                    }
+                    if(city_time2==i)
+                    {
+                        System.out.println(timeConvert(i) +"PM: "+queue2.front.getFirstName()+ " " +queue2.front.getLastName()+" is leaving the FCIT Travel Agency because no seats are available for the " +
+                                "requested flight.");
+                        queue2.pop();
+                    }
+                    if (time2==i)
+                    {
+                        System.out.println(timeConvert(i+1) +"PM: "+queue2.front.getFirstName()+ " " +queue2.front.getLastName()+" has finished the booking and is now exiting Reservations Line 2.");
+                        timemanage2=queue2.front.getEnterTime()+1+queue2.front.getNumSeats()*2;
+                        entering_Time2=queue2.front.getEnterTime();
+                        printing_Stack.push(queue2.front.getFirstName(),queue2.front.getLastName(),queue2.front.getUniversityID(),queue2.front.getDestinationCity(),queue2.front.getNumSeats(),queue2.front.getEnterTime());
+                        queue2.pop();
+                        printing_Stack2=i+1;
+                        if (queue2.front!=null)
+                        {
+//                           if(queue3.front.getEnterTime()==i)
+                            {
+                                queue2.front.setEnterTime(timemanage2);
+                            }
+                        }
+
+                    }
+                   
+
+                }
+                if (printing_Stack2==i)
+                {
+                    if(printing_Stack.front!=null)
+                    {
+                        System.out.println(timeConvert(i+1) +"PM: "+printing_Stack.front.getFirstName()+" "+ printing_Stack.front.getLastName()+"has received Printed the Booking/Voucher and is leaving the FCIT Travel Agency.");
+                        fciTbookingStack.push(printing_Stack.front.getFirstName(),printing_Stack.front.getLastName());
+                        printing_Stack.pop();
+
+                    }
+                }
+                if(!queue3.empty())
+                {
+                    if (queue3.front.getEnterTime()==i)
+                    {
+                        if (queue3.front.seat_Reserved()==false)
+                        {
+                            System.out.println(timeConvert(i+1) +"PM: "+queue3.front.getFirstName()+ " " +queue3.front.getLastName()+" is at the front of Reservations Line 3 and is now beginning the booking.");
+                            if (object_city[cityDisplay(queue3.front.getDestinationCity())]!=null)
+                            {
+                                if(object_city[cityDisplay(queue3.front.getDestinationCity())].seatAvailabiltiy(queue3.front.getNumSeats()))
+                                {
+                                    object_city[cityDisplay(queue3.front.getDestinationCity())].reserveSeats(queue3.front.getNumSeats());
+                                    time3=(queue3.front.getNumSeats()*2)+(i);
+                                    queue3.front.seats=true;
+                                }
+                                else
+                                {
+                                    city_time3=i+2;
+                                }
+                            }
+                            else
+                            {
+                                city_time3=i+2;
+                            }
+                        }
+                    }
+                    if(city_time3==i)
+                    {
+                        System.out.println(timeConvert(i) +"PM: "+queue3.front.getFirstName()+ " " +queue3.front.getLastName()+" is leaving the FCIT Travel Agency because no seats are available for the " +
+                                "requested flight.");
+                        if (queue3.front.seat_Reserved()==false)
+                        {
+                            queue3.pop();
+                        }
+                    }
 
 
-                   if (time3==i)
-                   {
-                       System.out.println(timeConvert(i+1) +"PM: "+queue3.front.getFirstName()+ " " +queue3.front.getLastName()+" has finished the booking and is now exiting Reservations Line 3.");
-                       fciTbookingStack.push(queue3.front.getFirstName(),queue3.front.getLastName());
-                       queue3.pop();
-                       if (queue3.front!=null)
-                       {
-                           i=queue3.front.getEnterTime();
-                       }
+                    if (time3==i)
+                    {
+                        System.out.println(timeConvert(i) +"PM: "+queue3.front.getFirstName()+ " " +queue3.front.getLastName()+" has finished the booking and is now exiting Reservations Line 3.");
+                        printing_Stack.push(queue3.front.getFirstName(),queue3.front.getLastName(),queue3.front.getUniversityID(),queue3.front.getDestinationCity(),queue3.front.getNumSeats(),queue3.front.getEnterTime());
+                        timemanage3=queue3.front.getEnterTime()+1+queue3.front.getNumSeats()*2;
+                        queue3.pop();
+                        printing_Stack3=i+1;
+                        if (queue3.front!=null)
+                        {
+//                           if(queue3.front.getEnterTime()==i)
+                            {
+                                queue3.front.setEnterTime(timemanage3);
+                            }
+                        }
 
-                   }
-               }
+                    }
+                }
+                if (printing_Stack3==i)
+                {
+                    if(printing_Stack.front!=null)
+                    {
+                        System.out.println(timeConvert(i+1) +"PM: "+printing_Stack.front.getFirstName()+" "+ printing_Stack.front.getLastName()+"has received Printed the Booking/Voucher and is leaving the FCIT Travel Agency.");
+                        fciTbookingStack.push(printing_Stack.front.getFirstName(),printing_Stack.front.getLastName());
+                        printing_Stack.pop();
+                    }
+                }
+
 
             }
 
@@ -278,7 +340,14 @@ public class test_Class {
         }
         else
         {
-            return (12 + time / 60 % 12) + ":" +"0"+ time % 60;
+            if(time/60%12==0)
+            {
+                return (12 + time / 60 % 12) + ":"+"0" + time % 60;
+            }
+            else
+            {
+                return ( time / 60 % 12) + ":" +"0"+ time % 60;
+            }
         }
     }
 
