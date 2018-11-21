@@ -2,7 +2,6 @@
 //FAHAD Tanveer FA17-BSE-047
 //Sajjad Ahmed FA17-BSE-125
 //Bilal Akbar FA17-BSE-068
-package travel_Agency_Simulator;
 
 import java.util.Arrays;
 

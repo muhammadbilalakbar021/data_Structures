@@ -3,7 +3,6 @@
 //Sajjad Ahmed FA17-BSE-125
 //Bilal Akbar FA17-BSE-068
 
-package travel_Agency_Simulator;
 
 import java.io.PrintStream;
 
