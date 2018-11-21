@@ -1,3 +1,7 @@
+//Bilal Mazhar FA17-BSE-153
+//FAHAD Tanveer FA17-BSE-047
+//Sajjad Ahmed FA17-BSE-125
+//Bilal Akbar FA17-BSE-068
 package travel_Agency_Simulator;
 
 import java.util.Arrays;
@@ -21,6 +25,8 @@ public class city {
 
     }
 
+
+    //This method is Creating Two day array of all Seats of String Type
     private void seat_Maker() {
         seats = new String[rows][7];
         for (int i = 1; i <rows; i++) {
@@ -35,8 +41,10 @@ public class city {
     }
 
 
+    //Method to Chechk Seat Availabilty
     public boolean seatAvailabiltiy(int seats_number) {
-        if ((total - numUsed) >= seats_number) {
+        if ((total - numUsed) >= seats_number)
+        {
             return true;
         } else {
             return false;
@@ -87,9 +95,12 @@ public class city {
 
     }
 
+
+    //Method to reserve SeaTS
     public void reserveSeats(int number)
     {
         seats_Reserved=new String[rows*6];
+//        seats_Reserved= Arrays.copyOf(seats,seats.length);
         if(starting_Number==1)
         {
 
@@ -108,7 +119,7 @@ public class city {
                 }
             }
             starting_Number=number;
-            numUsed=number;
+            this.numUsed=number;
 
         }
         else
@@ -131,7 +142,7 @@ public class city {
                 }
             }
             starting_Number=number;
-            numUsed=number+1;
+           this.numUsed=number+1;
         }
 
     }
