@@ -7,12 +7,6 @@ public class FCITqueue
     private String name;
 
 
-    public void FCITqueuesetnull()
-    {
-        this.front=null;
-        this.back=null;
-    }
-
     public int getFlag()
     {
         return flag;
@@ -33,7 +27,7 @@ public class FCITqueue
         this.name = null;
     }
 
-    public void push(String firstName, String lastName, int universityID, String destinationCity, int numSeats,int time)
+    public void push(String firstName, String lastName, int universityID, String destinationCity, int numSeats, int time)
     {
         FCITmember fciTmember= new FCITmember(firstName,lastName,universityID,destinationCity,numSeats,time);
 
@@ -52,12 +46,31 @@ public class FCITqueue
         }
 
     }
+    public void push(String firstName, String lastName, int universityID, String destinationCity, int numSeats, int time, String[] assigned ,int timec)
+    {
+        FCITmember fciTmember= new FCITmember(firstName,lastName,universityID,destinationCity,numSeats,time,assigned,timec);
 
+        if(front==null)
+        {
+            front=fciTmember;
+            back=fciTmember;
+            flag++;
+
+        }
+        else
+        {
+            back.setNext(fciTmember);
+            back=fciTmember;
+            flag++;
+        }
+
+    }
     public FCITmember pop()
     {
 
         FCITmember temp=front;
             front=front.next;
+            flag--;
             return temp;
 
 //        if (front.next!=null)

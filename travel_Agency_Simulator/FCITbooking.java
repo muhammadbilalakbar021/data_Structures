@@ -1,5 +1,7 @@
 package travel_Agency_Simulator;
 
+import java.io.PrintStream;
+
 public class FCITbooking
 {
     private int bookngNumber;
@@ -11,8 +13,10 @@ public class FCITbooking
     private String[] seatsAssigned;
     private int timeCompleted;
     private FCITbooking next;
+    StringBuilder stringBuilder= new StringBuilder();
 
-    public FCITbooking(int bookngNumber, String firstName, String lastName, int unversityID, int numSeats, String destinationCity, String[] seatsAssigned, int timeCompleted)
+
+    public FCITbooking(int bookngNumber, String firstName, String lastName, int unversityID,  String destinationCity, String[] seatsAssigned, int timeCompleted)
     {
         this.bookngNumber = bookngNumber;
         this.firstName = firstName;
@@ -25,10 +29,11 @@ public class FCITbooking
         this.next = next;
     }
 
-    public FCITbooking(String firstName, String lastName)
+    public FCITbooking(String firstName, String lastName,String[] seatsAssigned)
     {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.seatsAssigned=seatsAssigned;
 
     }
 
@@ -80,8 +85,19 @@ public class FCITbooking
         this.destinationCity = destinationCity;
     }
 
-    public String[] getSeatsAssigned() {
-        return seatsAssigned;
+    public String getSeatsAssigned()
+    {
+        for (int i=0;i<seatsAssigned.length;i++)
+        {
+            if(seatsAssigned[i]!=null)
+            {
+                 stringBuilder.append(" " + seatsAssigned[i]);
+            }
+
+        }
+        String final_String=stringBuilder.toString();
+        return final_String;
+
     }
 
     public void setSeatsAssigned(String[] seatsAssigned) {

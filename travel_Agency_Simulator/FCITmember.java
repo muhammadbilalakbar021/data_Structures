@@ -1,5 +1,7 @@
 package travel_Agency_Simulator;
 
+import java.util.Arrays;
+
 public class FCITmember
 {
     private String firstName;
@@ -30,18 +32,17 @@ public class FCITmember
     }
 
 
-    public FCITmember(String firstName, String lastName, int universityID, String destinationCity, int numSeats, boolean seatsAvailable, String[] seatsAssigned, int enterTime, int timeNeededForBooking, FCITmember next)
+    public FCITmember(String firstName,String lastName, int universityID, String destinationCity,int numSeats,int enterTime,String[] seatsAssigned,int timeNeededForBooking)
     {
         this.firstName = firstName;
         this.lastName = lastName;
         this.universityID = universityID;
         this.destinationCity = destinationCity;
         this.numSeats = numSeats;
-        this.seatsAvailable = seatsAvailable;
         this.seatsAssigned = seatsAssigned;
         this.enterTime = enterTime;
-        this.timeNeededForBooking = timeNeededForBooking;
-        this.next = next;
+        this.timeNeededForBooking=timeNeededForBooking;
+
     }
 
     public String getFirstName()
@@ -111,7 +112,7 @@ public class FCITmember
 
     public void setSeatsAssigned(String[] seatsAssigned)
     {
-        this.seatsAssigned = seatsAssigned;
+        this.seatsAssigned= Arrays.copyOf(seatsAssigned,seatsAssigned.length);
     }
 
     public int getEnterTime()

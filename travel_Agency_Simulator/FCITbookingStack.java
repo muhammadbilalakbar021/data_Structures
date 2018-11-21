@@ -2,16 +2,16 @@ package travel_Agency_Simulator;
 
 public class FCITbookingStack
 {
-    private FCITbooking top;
+     FCITbooking top;
 
     public FCITbookingStack()
     {
         this.top = null;
     }
 
-    public void push(int bookngNumber, String firstName, String lastName, int unversityID, int numSeats, String destinationCity, String[] seatsAssigned, int timeCompleted)
+    public void push(int bookngNumber, String firstName, String lastName, int unversityID, String destinationCity, String[] seatsAssigned, int timeCompleted)
     {
-        FCITbooking fciTbooking=new FCITbooking(bookngNumber,firstName,lastName,unversityID,numSeats,destinationCity,seatsAssigned,timeCompleted);
+        FCITbooking fciTbooking=new FCITbooking(bookngNumber,firstName,lastName,unversityID,destinationCity,seatsAssigned,timeCompleted);
         if(top==null)
         {
             top=fciTbooking;
@@ -23,9 +23,10 @@ public class FCITbookingStack
         }
     }
 
-    public void push(String firstName, String lastName)
+//    public void push(String name, String firstName, int universityID, String lastName, int numSeats, int enterTime)
+    public void push(String firstName,String lastName, String[] seatsAssigned)
     {
-        FCITbooking fciTbooking=new FCITbooking(firstName,lastName);
+        FCITbooking fciTbooking=new FCITbooking(firstName,lastName, seatsAssigned);
         if(top==null)
         {
             top=fciTbooking;
@@ -70,5 +71,6 @@ public class FCITbookingStack
             return false;
         }
     }
+
 
 }

@@ -1,29 +1,37 @@
 package travel_Agency_Simulator;
 
+import java.util.Arrays;
+
 public class city {
     public String name;
     public int rows;
     public String[][] seats;
+    public String[] seats_Reserved;
     public int total;
     public int numUsed;
+    public int starting_Number=1;
 
     public city(String name, int rows) {
         this.name = name;
-        this.rows = rows;
+        this.rows = rows+1;
         this.total = rows * 6;
         this.numUsed = 0;
         seat_Maker();
+
+
     }
 
     private void seat_Maker() {
-        seats = new String[rows][6];
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < 6; j++) {
-                int number = 65 + j;
+        seats = new String[rows][7];
+        for (int i = 1; i <rows; i++) {
+            for (int j = 1; j <= 6; j++) {
+                int number = 64 + j;
                 seats[i][j] = "" + i + (char) number;
 
             }
         }
+
+
     }
 
 
@@ -76,23 +84,61 @@ public class city {
     }
 
     public void display() {
-        System.out.println(name);
-        System.out.println(rows);
+
     }
 
     public void reserveSeats(int number)
     {
-        numUsed=number;
-//        for (int i = 0; i < rows; i++)
-//        {
-//            for (int j = 0; j < 6; j++)
-//            {
-//                if (i + j < number)
-//                    {
-//                    seats[i][j] = null;
-//                    numUsed++;
-//                }
-//            }
-//        }
+        seats_Reserved=new String[rows*6];
+        if(starting_Number==1)
+        {
+
+
+            for (int i = 1; i <rows; i++)
+            {
+                for (int j = 1; j <= 6; j++)
+                {
+                    if(starting_Number<=number)
+                    {
+                        seats_Reserved[starting_Number]=seats[i][j];
+                        seats[i][j]=null;
+                        starting_Number++;
+                    }
+
+                }
+            }
+            starting_Number=number;
+            numUsed=number;
+
+        }
+        else
+        {
+            number=starting_Number+number-1;
+            for (int i = 1; i <rows; i++)
+            {
+                for (int j = 1; j <= 6; j++)
+                {
+                    if(seats[i][j]!=null)
+                    {
+                        if(starting_Number<=number)
+                        {
+                            seats_Reserved[starting_Number]=seats[i][j];
+                            seats[i][j]=null;
+                            starting_Number++;
+                        }
+                    }
+
+                }
+            }
+            starting_Number=number;
+            numUsed=number+1;
+        }
+
+    }
+
+
+    public String[] getReservedSeats()
+    {
+        return seats_Reserved;
     }
 }
