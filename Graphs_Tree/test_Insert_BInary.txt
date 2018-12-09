@@ -1,0 +1,57 @@
+
+    public void insert(int value)
+    {
+        binray_Tree node =new binray_Tree(value);
+        if(head==null)
+        {
+            head=node;
+            tail_left=node;
+            tail_right=node;
+        }
+        else
+        {
+            binray_Tree temo=head;
+            if(value<head.data)
+            {
+
+                    while (temo.left!=null || value<temo.left.data)
+                    {
+                        temo=temo.left;
+                    }
+
+                    if (value<temo.data)
+                    {
+                        tail_left.left=node;
+                        node.back=tail_left;
+                        tail_left=node;
+
+//                    }
+//                    if (value>temo.data)
+//                    {
+//                        tail_left.right=node;
+//                        node.back=tail_left;
+//                    }
+//
+//            }
+//            else if(value>head.data)
+//            {
+//                while (temo.right!=null)
+//                {
+//                    temo=temo.right;
+//                }
+//
+//
+//                    if (value<temo.data)
+//                    {
+//                        tail_right.left=node;
+//                        node.back=tail_right;
+//                    }
+//                    if (value>temo.data)
+//                    {
+//                        tail_right.right=node;
+//                        node.back=tail_right;
+//                        tail_right=node;
+//                    }
+//            }
+//        }
+//    }
