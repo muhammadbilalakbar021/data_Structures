@@ -1,0 +1,26 @@
+ graph head;
+    graph tail;
+    graph[] array= new graph[5];
+
+    graph queue(int index, int weight, graph next )
+    {
+        graph list=new graph(index, weight, next);
+
+        if(head==null)
+        {
+            head=list;
+            tail=list;
+        }
+        else
+        {
+            tail.setNext(list);
+            tail=list;
+
+        }
+        return list;
+    }
+
+    void insert(int src, int des, int weight, graph next )
+    {
+        array[src]=queue(des, weight, next);
+    }
