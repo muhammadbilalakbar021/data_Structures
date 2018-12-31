@@ -29,6 +29,8 @@ public class testing_Graphs
 //        graphs_List.remove_Vertex(list,1);
 //        graphs_List.print(list);
 
-        graphs_List.path_Exists(list,1,3);
+//        graphs_List.path_Exists(list,1,3);
+
+        list.BFS(1);
     }
 }

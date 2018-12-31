@@ -1,5 +1,6 @@
 package Graphs;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class graphs_List
@@ -53,6 +54,35 @@ public class graphs_List
 
         public void setPrev_Nodes(int prev_Nodes) {
             this.prev_Nodes = prev_Nodes;
+        }
+
+
+        void BFS(int s)
+        {
+
+            boolean visited[] = new boolean[nodes];
+
+            LinkedList<Integer> queue = new LinkedList<Integer>();
+            visited[s]=true;
+            queue.add(s);
+
+            while (queue.size() != 0)
+            {
+                s = queue.poll();
+                System.out.print(s+" ");
+
+
+                Iterator<Integer> i = list[s].listIterator();
+                while (i.hasNext())
+                {
+                    int n = i.next();
+                    if (!visited[n])
+                    {
+                        visited[n] = true;
+                        queue.add(n);
+                    }
+                }
+            }
         }
     }
 
@@ -146,6 +176,13 @@ public class graphs_List
 //                System.out.println(graph.list[source]);
             }
         }
+    }
 
+    static void bfs(Graph graph,int source)
+    {
+        while (graph.list!=null)
+        {
+            System.out.println(graph.list);
+        }
     }
 }
