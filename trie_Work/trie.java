@@ -39,7 +39,6 @@ public class trie
     }
     public trie_Node search(String word)
     {
-        System.out.println(root.children.size());
         Map<Character , trie_Node> children=root.children;
         trie_Node root=null;
         for (int i=0;i<word.length();i++)
@@ -47,14 +46,17 @@ public class trie
             char c=word.charAt(i);
             if (children.containsKey(c))
             {
-                System.out.println(children.get(c).data);
                 root=children.get(c);
                 children=root.children;
 
             }
-//            else if(word.charAt(i+1)==)
+            else if (c=='.' || c==',')
+            {
+                return root;
+            }
             else
             {
+                System.out.println(word);
                 return null;
             }
         }
